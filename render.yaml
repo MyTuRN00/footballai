@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: footballai
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: REGISTRATION_FEE_GHS
+        value: "50"
+      - key: CUSTOM_GHS_PER_CREDIT
+        value: "5"
+      - key: MOMO_PAYEE_NAME
+        value: SUSANA WILLIAMS
+      - key: MOMO_NUMBER
+        value: "0506580144"
+      - key: MOMO_INSTRUCTIONS
+        value: "Pay using the MTN Mobile Money details above, then upload a screenshot of the successful payment and enter the transaction reference. Never share your MoMo PIN."
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
